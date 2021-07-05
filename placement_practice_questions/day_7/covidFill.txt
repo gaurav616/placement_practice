@@ -1,0 +1,23 @@
+class Solution {
+    public void covid(int sr, int sc, int [][]image, int newColor, int source)
+    {
+        if(sr<0 || sc <0|| sr>=image.length|| sc>=image[0].length)
+            return;
+        if(image[sr][sc]!=source)
+            return;
+        image[sr][sc]= newColor;
+        covid(sr+1, sc, image, newColor, source);
+        covid(sr, sc+1, image, newColor, source);
+        covid(sr-1, sc, image, newColor, source);
+        covid(sr, sc-1, image, newColor, source);
+}
+    
+    public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
+        
+        if(newColor== image[sr][sc])
+        return image;
+        int source = image[sr][sc];
+        covid(sr, sc, image, newColor, source);
+        return image;
+    }
+}
