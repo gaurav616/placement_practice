@@ -1,0 +1,33 @@
+class Solution {
+    public int romanToInt(String s) {
+        int len = s.length();
+        int arr[]= new int[len];
+        for(int i=0;i<len;i++)
+        {
+            if(s.charAt(i)=='I')
+                arr[i]=1;
+            if(s.charAt(i)=='V')
+                arr[i]=5;
+            if(s.charAt(i)=='X')
+                arr[i]=10;
+            if(s.charAt(i)=='L')
+                arr[i]=50;
+            if(s.charAt(i)=='C')
+                arr[i]=100;
+            if(s.charAt(i)=='D')
+                arr[i]=500;
+            if(s.charAt(i)=='M')
+                arr[i]=1000;
+            
+}
+        int ans = arr[arr.length-1];
+        for(int i=arr.length-1;i>0;i--)
+        {
+            if(arr[i] > arr[i-1])
+                ans= ans-arr[i-1];
+            else
+               ans= ans+arr[i-1];
+}
+        return ans;
+    }
+}
